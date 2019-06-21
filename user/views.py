@@ -1,5 +1,5 @@
 from django.forms import model_to_dict
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -72,3 +72,16 @@ def update(request):
 
     return HttpResponseRedirect('/user/updateform?result=success')
 
+
+def checkemail(request):
+    try:
+        user = User.objects.get(email=request.GET['email'])
+    except Exception as e:
+        user = None
+
+    result = {
+        'result': 'success',
+        'data': 'not exits' if user is None else 'exits'
+    }
+
+    return JsonResponse(result)
