@@ -25,6 +25,7 @@ urlpatterns = [
     path('', main_views.index),
 
     path('board/', board_views.list),
+    path('board/list', board_views.list),
     path('board/write', board_views.write),
     path('board/view/<int:id>', board_views.view),
     path('board/modify/<int:id>', board_views.modify),

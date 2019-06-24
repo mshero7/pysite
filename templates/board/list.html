@@ -7,8 +7,8 @@
 
 {% block content %}
 			<div id="board">
-				<form id="search_form" action="" method="post">
-					<input type="text" id="kwd" name="kwd" value="">
+				<form id="search_form" action="/board/list?keyword={{ search_form.keyword }}" method="GET">
+					<input type="text" id="keyword" name="keyword" value="">
 					<input type="submit" value="찾기">
 				</form>
 				<table class="tbl-ex">
@@ -22,9 +22,11 @@
 					</tr>
 					{% for boardlist in board_list %}
 					<tr>
-						<td style="text-align:left; padding-left:{{ boardlist.depth | add:1 | mul:10}}px">
-							<a href="/board/view/{{boardlist.id}}">{{ boardlist.title }}</a></td>
 						<td>{{boardlist.id}}</td>
+						<td style="text-align:left; padding-left:{{ boardlist.depth | add:1 | mul:10}}px">
+							<a href="/board/view/{{boardlist.id}}">{{ boardlist.title }}</a>
+						</td>
+						<td>{{boardlist.user.name}}</td>
 						<td>{{boardlist.hit}}</td>
 						<td>{{boardlist.regdate}}</td>
 						<td><a href="" class="del">삭제</a></td>
