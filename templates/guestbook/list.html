@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block content %}
-		<div id="content">
 			<div id="guestbook">
 				<form action="/guestbook/add" method="post">{% csrf_token %}
 					<table>
@@ -63,7 +62,4 @@
 					{% endfor %}
 				</ul>
 			</div>
-
-		</div>
-
 {% endblock %}

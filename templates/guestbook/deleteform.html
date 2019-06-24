@@ -6,7 +6,6 @@
 
 
 {% block content %}
-	<div id="content">
 			<div id="guestbook" class="delete-form">
 				<form method="post" action="/guestbook/delete">
 					{% csrf_token %}
@@ -17,5 +16,5 @@
 				</form>
 				<a href="/guestbook">방명록 리스트</a>
 			</div>
-	</div>
+
 {% endblock %}

@@ -3,7 +3,6 @@
 <link href="/assets/css/user.css" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block content %}
-		<div id="content">
 			<div id="user">
 				<form id="login-form" name="loginform" method="post" action="/user/login">
 					{% csrf_token %}
@@ -19,5 +18,5 @@
 					<input type="submit" value="로그인">
 				</form>
 			</div>
-		</div>
+
 {% endblock %}
